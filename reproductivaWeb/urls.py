@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^el_proyecto/$', views.nosotros, name="el_proyecto"),
     url(r'^nuestro_equipo/$', views.nuestro_equipo, name="nuestro_equipo"),
     url('^email/$', views.emailView, name='email'),
+    url('^politica/$', views.politica_privacidad, name='politica'),
     url('^success/$', views.successView, name='success'),
     url('^directorio/$', views.lista_centros_medicos, name='directorio'),
 ]

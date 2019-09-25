@@ -19,6 +19,8 @@ def nosotros(request):
 
 def nuestro_equipo(request):
     return render(request,'nuestro_quipo.html')
+def politica_privacidad(request):
+    return render(request,'politicas_privacidad.html')
 
 def emailView(request):
     if request.method == 'GET':
