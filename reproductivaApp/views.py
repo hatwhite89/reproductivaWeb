@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from reproductivaApp.form import ContactForm
+from reproductivaApp.models import Noticias, PostContenido, Videos
 
 
 def main(request):
@@ -22,6 +23,13 @@ def nuestro_equipo(request):
 def politica_privacidad(request):
     return render(request,'politicas_privacidad.html')
 
+def blog(request):
+    noticias = Noticias.objects.all()
+    return render(request,'blog.html',{'noticias':noticias})
+
+def postContenido(request):
+    post = PostContenido.objects.all()
+    return render(request,'post_contenidos.html',{'post':post})
 def emailView(request):
     if request.method == 'GET':
         form = ContactForm()
@@ -43,3 +51,7 @@ def successView(request):
 
 def lista_centros_medicos(request):
     return render(request,'directorio_medico.html')
+
+def videos(request):
+    videos=Videos.objects.all()
+    return render (request,'videos.html',{'videos':videos})

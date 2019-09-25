@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load  static %}
+{% block content %}
+  <div class="main-content">
+    <!-- Section: inner-header -->
+    <section class="inner-header divider parallax layer-overlay overlay-white-8" data-bg-img="{% static '/imagenes/fondo_blog.jpg' %}">
+      <div class="container pt-60 pb-60">
+        <!-- Section Content -->
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h3 class="font-28">Blog </h3>
+              <ol class="breadcrumb text-center text-black mt-10">
+                <li><a href="#">INICIO</a></li>
+
+                <li class="active text-theme-colored">BLOG</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Blog -->
+    <section>
+      <div class="container mt-30 mb-30 pt-30 pb-30">
+        <div class="row multi-row-clearfix">
+          <div id="blog-posts-wrapper" class="blog-posts">
+              {% for item in noticias %}
+            <div class="col-sm-6 col-md-3 col-lg-3">
+              <article class="post clearfix maxwidth600 mb-30">
+                <div class="entry-header">
+                  <div class="post-thumb thumb"> <img src="http://placehold.it/360x220" alt="" class="img-responsive img-fullwidth"> </div>
+                </div>
+                <div class="entry-content border-1px p-20">
+                  <h5 class="entry-title mt-0 pt-0"><a href="#">{{item.titulo}}</a></h5>
+                  <ul class="list-inline entry-date font-12 mt-5">
+                    <li class="pr-0"><a class="text-theme-colored" href="#">Admin |</a></li>
+                    <li class="pl-0"><span class="text-theme-colored">{{item.fecha_creacion}}</span></li>
+                  </ul>
+                  <p class="text-left mb-20 mt-15 font-13">{{item.resumen | safe}}</p>
+                  <a class="btn btn-dark btn-theme-colored btn-xs btn-flat mt-0" href="#">Leer Más</a>
+                  <div class="clearfix"></div>
+                </div>
+              </article>
+            </div>
+     {% endfor %}
+            <div class="col-md-12">
+              <nav>
+                <ul class="pagination theme-colored">
+                  <li> <a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a> </li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">...</a></li>
+                  <li> <a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a> </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load staticfiles%}
+{% block content %}
+     <div class="main-content">
+
+    <!-- Section: inner-header -->
+    <section class="inner-header divider parallax layer-overlay overlay-dark-5"  data-bg-img="{%  static '/imagenes/fondo_videos.jpg' %}">
+      <div class="container pt-100 pb-50">
+        <!-- Section Content -->
+        <div class="section-content pt-100">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="title text-white">Vídeos</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Grid 3 -->
+    <section>
+      <div class="container">
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-12">
+
+              <!-- Portfolio Gallery Grid -->
+              <div id="grid" class="gallery-isotope grid-3 gutter clearfix">
+                <!-- Portfolio Item Start -->
+
+
+
+                <!-- Portfolio Item Start -->
+                  {% for item in videos %}
+                <div class="gallery-item branding">
+                  <div class="thumb">
+                    <img class="img-fullwidth" src="http://img.youtube.com/vi/{{item.url}}/0.jpg" alt="{{item.titulo}}">
+                    <div class="overlay-shade"></div>
+                    <div class="icons-holder">
+                      <div class="icons-holder-inner">
+                        <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                          <a class="popup-youtube" href="https://www.youtube.com/watch?v={{item.url}}"><i class="fa fa-play"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  {% endfor %}
+                <!-- Portfolio Item End -->
+
+
+
+
+                <!-- Portfolio Item End -->
+              </div>
+              <!-- End Portfolio Gallery Grid -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+{% endblock %}

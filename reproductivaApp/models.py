@@ -1,6 +1,10 @@
-from django.db import models
 
 # Create your models here.
+# -*- coding: utf-8 -*-
+
+
+
+
 
 from django.db import models
 from ckeditor.fields import RichTextField
@@ -27,27 +31,9 @@ class CategoriaPost(models.Model):
     def __str__(self):
         return self.categoria
 
-#POST DEL BLOG
-class Post (models.Model):
-    titulo = models.CharField(max_length=200)
-    cuerpo = RichTextField()
-    resumen= RichTextField(null=True)
-    fecha_creacion =models.DateField()
-    estado=models.ForeignKey(Estado ,on_delete=models.CASCADE,)
-    imagen_portada=models.ImageField(upload_to='imagenes/', null=True)
-    usuario_creo= models.ForeignKey(User,on_delete=models.CASCADE,)
-    id_categoria=models.ForeignKey(CategoriaPost, on_delete=models.CASCADE,)
 
-    def __str__(self):
-        return self.titulo
 
-#COMENTARIOS DE POST
-class ComentariosPost(models.Model):
-    cuerpo= RichTextField()
-    fecha_publicacion=models.DateField()
-    usuario= models.CharField(max_length=50)
-    estado= models.ForeignKey(Estado, on_delete=models.CASCADE,)
-    id_post = models.ForeignKey(Post,  on_delete=models.CASCADE,)
+
 
 
 #SUBIR IMAGENES PARA GALERIAS
@@ -145,3 +131,117 @@ class ImagenesGaleriaAlbum(models.Model):
 
     def __str__(self):
         return self.titulo_imagen
+
+#CONTENIDO DEL MENU
+
+class CategoriaPostContenido(models.Model):
+    categoria= models.CharField(max_length=200)
+    descripcion= models.TextField()
+    fecha_creacion=models.DateField()
+    estado = models.ForeignKey(Estado, on_delete=models.CASCADE,)
+
+    def __str__(self):
+        return self.categoria
+
+class PostContenido (models.Model):
+    titulo = models.CharField(max_length=200)
+    cuerpo = RichTextField()
+    resumen= RichTextField(null=True)
+    fecha_creacion =models.DateField()
+    estado=models.ForeignKey(Estado ,on_delete=models.CASCADE,)
+    imagen_portada=models.ImageField(upload_to='imagenes/', null=True)
+    usuario_creo= models.ForeignKey(User,on_delete=models.CASCADE,)
+    id_categoria=models.ForeignKey(CategoriaPostContenido, on_delete=models.CASCADE,)
+
+    def __str__(self):
+        return self.titulo
+
+class ContenidoSubCategoria (models.Model):
+    categoria = models.CharField(max_length=200)
+    descripcion = models.TextField()
+    fecha_creacion = models.DateField()
+    categoriaPrincipal = models.ForeignKey(CategoriaPostContenido, on_delete=models.CASCADE, )
+
+    def __str__(self):
+        return self.categoria
+
+
+class PostContenidoSubCategoria (models.Model):
+    titulo = models.CharField(max_length=200)
+    cuerpo = RichTextField()
+    resumen= RichTextField(null=True)
+    fecha_creacion =models.DateField()
+    estado=models.ForeignKey(Estado ,on_delete=models.CASCADE,)
+    imagen_portada=models.ImageField(upload_to='imagenes/', null=True)
+    usuario_creo= models.ForeignKey(User,on_delete=models.CASCADE,)
+    id_categoria=models.ForeignKey(ContenidoSubCategoria, on_delete=models.CASCADE,)
+
+    def __str__(self):
+        return self.titulo
+
+class Videos(models.Model):
+    titulo = models.CharField(max_length=200)
+    url=models.TextField()
+    fecha_publicacion=models.DateField()
+
+#NOTICIAS
+class Noticias (models.Model):
+    titulo = models.CharField(max_length=200)
+    cuerpo = RichTextField()
+    resumen= RichTextField(null=True)
+    fecha_creacion =models.DateField()
+
+    imagen_portada=models.ImageField(upload_to='imagenes/', null=True)
+
+
+
+    def __str__(self):
+        return self.titulo
+
+#BLOGUEROS
+class Bloguero (models.Model):
+    nombre = models.CharField(max_length=200,null=True)
+    descripcion =models.TextField(null=True)
+    foto=models.ImageField(upload_to='imagenes/', null=True)
+    def __str__(self):
+        return self.nombre
+
+#POST DEL BLOG
+class Post (models.Model):
+    titulo = models.CharField(max_length=200)
+    cuerpo = RichTextField()
+    resumen= RichTextField(null=True)
+    fecha_creacion =models.DateField()
+    estado=models.ForeignKey(Estado ,on_delete=models.CASCADE,)
+    imagen_portada=models.ImageField(upload_to='imagenes/', null=True)
+    bloguero= models.ForeignKey(Bloguero,on_delete=models.CASCADE,)
+    id_categoria=models.ForeignKey(CategoriaPost, on_delete=models.CASCADE,)
+
+    def __str__(self):
+        return self.titulo
+
+    # COMENTARIOS DE POST
+class ComentariosPost(models.Model):
+    cuerpo = RichTextField()
+    fecha_publicacion = models.DateField()
+    usuario = models.CharField(max_length=50)
+    estado = models.ForeignKey(Estado, on_delete=models.CASCADE, )
+    id_post = models.ForeignKey(Post, on_delete=models.CASCADE, )
+
+#COMENTARIOS DE CONTENIDO
+class ComentariosPostContenido(models.Model):
+    cuerpo = RichTextField()
+    fecha_publicacion = models.DateField()
+    usuario = models.CharField(max_length=50)
+    estado = models.ForeignKey(Estado, on_delete=models.CASCADE, )
+    id_post = models.ForeignKey(PostContenido, on_delete=models.CASCADE, )
+
+class DudasFrecuentes(models.Model):
+        pregunta= RichTextField()
+        respuesta=RichTextField()
+        fecha_publicacion=models.DateField()
+        usuario_registro=models.ForeignKey(User,on_delete=models.CASCADE,)
+
+        def __str__(self):
+            return self.pregunta
+
