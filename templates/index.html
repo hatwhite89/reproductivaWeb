@@ -251,7 +251,7 @@
                   data-splitin="none" 
                   data-splitout="none" 
                   data-responsive_offset="on"
-                  style="z-index: 7; white-space: nowrap; font-weight:600;"><span class="">TU APP DE EDUCACIÓN SEXUAL
+                  style="z-index: 7; white-space: nowrap; font-weight:600;"><span class="">Construida para todosL
                 </div>
 
                 <!-- LAYER NR. 2 -->
@@ -301,7 +301,7 @@
                   data-splitin="none" 
                   data-splitout="none" 
                   data-responsive_offset="on"
-                  style="z-index: 5; white-space: nowrap; letter-spacing:0px; font-weight:400;">Solo necesitas registrarte y podras acceder a todos nuestras secciones.
+                  style="z-index: 5; white-space: nowrap; letter-spacing:0px; font-weight:400;">Solo necesitas registrarte y podrás participar en nuestro chat y opinar en nuestros contenidos.
                 </div>
 
                 <!-- LAYER NR. 4 -->
@@ -438,9 +438,10 @@
         <div class="section-content">
           <div class="row">
             <div class="col-md-4 wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
-              <div class="p-40 mb-sm-20 text-center bg-lightest border-2px">
+              <div class="p-40 mb-sm-20 text-justify bg-lightest border-2px">
                 <h2 class="mt-0">Reproductiva <span class="text-theme-colored"> App</span></h2>
-              <p>Reproductiva es la primera aplicación móvil de salud sexual integral, disponible gratis en más tiendas de Android y IOS.
+                  <p> Reproductiva es la primera aplicación móvil de salud sexual integral, disponible gratis en las tiendas de Android y IOS.</p>
+             <br><br><br><br><br>
               </div>
             </div>
             <div class="col-md-8 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s">
@@ -546,149 +547,40 @@
         <div class="section-title text-center">
           <div class="row">
             <div class="col-md-8 col-md-offset-2">
-              <h2 class="title text-black-666">Recent <span class="text-theme-colored"> News</span></h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem autem<br> voluptatem obcaecati!</p>
+              <h2 class="title text-white">NOTICIAS RECIENTES </h2>
+              <p>Aquí encontraras las últimas noticias sobre lo que hacemos desde reproductiva.</p>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
               <div class="owl-carousel-3col owl-nav-top mb-sm-80" data-dots="true">
+                  {%  for item in lista_noticias %}
               <div class="item">
                 <article class="post clearfix maxwidth600 mb-sm-30 wow fadeInRight" data-wow-delay=".2s">
                   <div class="entry-header">
-                    <div class="post-thumb thumb"> <img src="http://placehold.it/360x220" alt="" class="img-responsive img-fullwidth"> </div>
+                    <div class="post-thumb thumb"> <img src="{{ item.imagen_portada }}" alt="" class="img-responsive img-fullwidth"> </div>
                     <div class="entry-meta meta-absolute text-center pl-15 pr-15">
                     <div class="display-table">
                       <div class="display-table-cell">
-                        <ul>
-                          <li><a class="text-white" href="#"><i class="fa fa-thumbs-o-up"></i> 265 <br> Likes</a></li>
-                          <li class="mt-20"><a class="text-white" href="#"><i class="fa fa-comments-o"></i> 72 <br> comments</a></li>
-                        </ul>
+
                       </div>
                     </div>
                     </div>
                   </div>
                   <div class="entry-content border-1px p-20">
-                    <h5 class="entry-title mt-0 pt-0"><a href="#">Sponsor a child today</a></h5>
-                    <p class="text-left mb-20 mt-15 font-13">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                    <a class="btn btn-flat btn-dark btn-theme-colored btn-sm pull-left" href="#">Read more</a>
+                    <h5 class="entry-title mt-0 pt-0"><a href="#">{{item.titulo}}</a></h5>
+                    <p class="text-left mb-20 mt-15 font-13">{{item.resumen | safe}}</p>
+                    <!--<a class="btn btn-flat btn-dark btn-theme-colored btn-sm pull-left" href="#">Read more</a>-->
                     <ul class="list-inline entry-date pull-right font-12 mt-5">
                       <li><a class="text-theme-colored" href="#">Admin |</a></li>
-                      <li><span class="text-theme-colored">Nov 13, 2015</span></li>
+                      <li><span class="text-theme-colored">{{item.fecha_creacion}}</span></li>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                 </article>
               </div>
-              <div class="item">
-                <article class="post clearfix maxwidth600 mb-sm-30 wow fadeInRight" data-wow-delay=".4s">
-                  <div class="entry-header">
-                    <div class="post-thumb thumb"> <img src="http://placehold.it/360x220" alt="" class="img-responsive img-fullwidth"> </div>
-                    <div class="entry-meta meta-absolute text-center pl-15 pr-15">
-                    <div class="display-table">
-                      <div class="display-table-cell">
-                        <ul>
-                          <li><a class="text-white" href="#"><i class="fa fa-thumbs-o-up"></i> 265 <br> Likes</a></li>
-                          <li class="mt-20"><a class="text-white" href="#"><i class="fa fa-comments-o"></i> 72 <br> comments</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    </div>
-                  </div>
-                  <div class="entry-content border-1px p-20">
-                    <h5 class="entry-title mt-0 pt-0"><a href="#">Sponsor a child today</a></h5>
-                    <p class="text-left mb-20 mt-15 font-13">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                    <a class="btn btn-flat btn-dark btn-theme-colored btn-sm pull-left" href="#">Read more</a>
-                    <ul class="list-inline entry-date pull-right font-12 mt-5">
-                      <li><a class="text-theme-colored" href="#">Admin |</a></li>
-                      <li><span class="text-theme-colored">Nov 13, 2015</span></li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                </article>
-              </div>
-              <div class="item">
-                <article class="post clearfix maxwidth600 mb-sm-30 wow fadeInRight" data-wow-delay=".6s">
-                  <div class="entry-header">
-                    <div class="post-thumb thumb"> <img src="http://placehold.it/360x220" alt="" class="img-responsive img-fullwidth"> </div>
-                    <div class="entry-meta meta-absolute text-center pl-15 pr-15">
-                    <div class="display-table">
-                      <div class="display-table-cell">
-                        <ul>
-                          <li><a class="text-white" href="#"><i class="fa fa-thumbs-o-up"></i> 265 <br> Likes</a></li>
-                          <li class="mt-20"><a class="text-white" href="#"><i class="fa fa-comments-o"></i> 72 <br> comments</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    </div>
-                  </div>
-                  <div class="entry-content border-1px p-20">
-                    <h5 class="entry-title mt-0 pt-0"><a href="#">Sponsor a child today</a></h5>
-                    <p class="text-left mb-20 mt-15 font-13">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                    <a class="btn btn-flat btn-dark btn-theme-colored btn-sm pull-left" href="#">Read more</a>
-                    <ul class="list-inline entry-date pull-right font-12 mt-5">
-                      <li><a class="text-theme-colored" href="#">Admin |</a></li>
-                      <li><span class="text-theme-colored">Nov 13, 2015</span></li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                </article>
-              </div>
-              <div class="item">
-                <article class="post clearfix maxwidth600 mb-sm-30">
-                  <div class="entry-header">
-                    <div class="post-thumb thumb"> <img src="http://placehold.it/360x220" alt="" class="img-responsive img-fullwidth"> </div>
-                    <div class="entry-meta meta-absolute text-center pl-15 pr-15">
-                    <div class="display-table">
-                      <div class="display-table-cell">
-                        <ul>
-                          <li><a class="text-white" href="#"><i class="fa fa-thumbs-o-up"></i> 265 <br> Likes</a></li>
-                          <li class="mt-20"><a class="text-white" href="#"><i class="fa fa-comments-o"></i> 72 <br> comments</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    </div>
-                  </div>
-                  <div class="entry-content border-1px p-20">
-                    <h5 class="entry-title mt-0 pt-0"><a href="#">Sponsor a child today</a></h5>
-                    <p class="text-left mb-20 mt-15 font-13">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                    <a class="btn btn-flat btn-dark btn-theme-colored btn-sm pull-left" href="#">Read more</a>
-                    <ul class="list-inline entry-date pull-right font-12 mt-5">
-                      <li><a class="text-theme-colored" href="#">Admin |</a></li>
-                      <li><span class="text-theme-colored">Nov 13, 2015</span></li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                </article>
-              </div>
-              <div class="item">
-                <article class="post clearfix maxwidth600 mb-sm-30">
-                  <div class="entry-header">
-                    <div class="post-thumb thumb"> <img src="http://placehold.it/360x220" alt="" class="img-responsive img-fullwidth"> </div>
-                    <div class="entry-meta meta-absolute text-center pl-15 pr-15">
-                    <div class="display-table">
-                      <div class="display-table-cell">
-                        <ul>
-                          <li><a class="text-white" href="#"><i class="fa fa-thumbs-o-up"></i> 265 <br> Likes</a></li>
-                          <li class="mt-20"><a class="text-white" href="#"><i class="fa fa-comments-o"></i> 72 <br> comments</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    </div>
-                  </div>
-                  <div class="entry-content border-1px p-20">
-                    <h5 class="entry-title mt-0 pt-0"><a href="#">Sponsor a child today</a></h5>
-                    <p class="text-left mb-20 mt-15 font-13">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                    <a class="btn btn-flat btn-dark btn-theme-colored btn-sm pull-left" href="#">Read more</a>
-                    <ul class="list-inline entry-date pull-right font-12 mt-5">
-                      <li><a class="text-theme-colored" href="#">Admin |</a></li>
-                      <li><span class="text-theme-colored">Nov 13, 2015</span></li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                </article>
-              </div>
+           {% endfor %}
             </div>
           </div>
         </div>

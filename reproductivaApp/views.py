@@ -10,7 +10,8 @@ from reproductivaApp.models import Noticias, PostContenido, Videos
 
 
 def main(request):
-    return render(request, 'index.html')
+    lista_noticias= Noticias.objects.all()
+    return render(request, 'index.html',{'lista_noticias':lista_noticias})
 
 def base(request):
     return render(request, 'base.html')
