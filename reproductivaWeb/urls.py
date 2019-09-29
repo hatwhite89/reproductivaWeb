@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-
+from django.conf.urls.static import static
 from reproductivaApp import views
+from reproductivaWeb import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -33,3 +34,7 @@ urlpatterns = [
     url('^success/$', views.successView, name='success'),
     url('^directorio/$', views.lista_centros_medicos, name='directorio'),
 ]
+# SI EL DEBUG ES TRUE ENTONCES QUE TOME LA CARPETA STATIC_URL, DE LO CONTRARIO QUE UTILIZE LA CARPETA MEDIA_URL
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
