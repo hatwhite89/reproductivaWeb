@@ -26,13 +26,17 @@ urlpatterns = [
     url(r'^base/$', views.base, name="base"),
     url(r'^el_proyecto/$', views.nosotros, name="el_proyecto"),
     url(r'^nuestro_equipo/$', views.nuestro_equipo, name="nuestro_equipo"),
-    url('^email/$', views.emailView, name='email'),
+
     url('^politica/$', views.politica_privacidad, name='politica'),
     url('^blog/$', views.blog, name='blog'),
     url('^post/$', views.postContenido, name='post'),
     url('^videos/$', views.videos, name='videos'),
-    url('^success/$', views.successView, name='success'),
+
     url('^directorio/$', views.lista_centros_medicos, name='directorio'),
+    url('^directorio/$', views.lista_centros_medicos, name='directorio'),
+    url(r'^email/$', views.contacto.as_view(), name="email"),
+
+    url(r'^detalle_post/$', views.postDetalle, name="detalle_post"),
 ]
 # SI EL DEBUG ES TRUE ENTONCES QUE TOME LA CARPETA STATIC_URL, DE LO CONTRARIO QUE UTILIZE LA CARPETA MEDIA_URL
 if settings.DEBUG:

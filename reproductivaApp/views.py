@@ -5,8 +5,10 @@ from django.shortcuts import render, redirect
 
 
 # Create your views here.
-from reproductivaApp.form import ContactForm
-from reproductivaApp.models import Noticias, PostContenido, Videos
+from django.views import View
+
+from reproductivaApp.form import ContactForm, correo
+from reproductivaApp.models import Noticias, PostContenido, Videos,Post
 
 
 def main(request):
@@ -25,30 +27,17 @@ def politica_privacidad(request):
     return render(request,'politicas_privacidad.html')
 
 def blog(request):
-    noticias = Noticias.objects.all()
+    noticias = Post.objects.all()
     return render(request,'blog.html',{'noticias':noticias})
 
 def postContenido(request):
     post = PostContenido.objects.all()
     return render(request,'post_contenidos.html',{'post':post})
-def emailView(request):
-    if request.method == 'GET':
-        form = ContactForm()
-    else:
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            subject = form.cleaned_data['subject']
-            from_email = form.cleaned_data['from_email']
-            message = form.cleaned_data['message']
-            try:
-                send_mail(subject, message, from_email, ['gallardoerick89@gmail.com'])
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-            return redirect('success')
-    return render(request, "email.html", {'form': form})
+def postDetalle(request):
+    id_post= request.GET['id_post']
+    detalle_post=PostContenido.objects.filter(pk=id_post)
+    return  render(request,'detalle_post.html',{'detalle_post':detalle_post})
 
-def successView(request):
-    return HttpResponse('Success! Thank you for your message.')
 
 def lista_centros_medicos(request):
     return render(request,'directorio_medico.html')
@@ -56,3 +45,8 @@ def lista_centros_medicos(request):
 def videos(request):
     videos=Videos.objects.all()
     return render (request,'videos.html',{'videos':videos})
+
+class contacto(View):
+    def get(self,request):
+        form=correo()
+        return render(request,'contacto.html',{'forma':form})

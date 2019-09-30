@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-content header-clear-large content">
+        <h1 class="text-white text-center">Formulario de Contacto</h1>
+        <form method="POST" action="" novalidate="novalidate" class="text-center center-block">
+            {% csrf_token %}
+            {{ forma }}
+            <br>
+            <input type="submit" value="Confirmar" class="button button-magenta center-object button-center-large">
+        </form>
+    </div>
+{% endblock %}
