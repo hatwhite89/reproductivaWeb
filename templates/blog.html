@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load  static %}
+{% load  staticfiles %}
 {% block content %}
   <div class="main-content">
     <!-- Section: inner-header -->
@@ -40,7 +40,7 @@
                     <li class="pl-0"><span class="text-theme-colored">{{item.fecha_creacion}}</span></li>
                   </ul>
                   <p class="text-left mb-20 mt-15 font-13">{{item.resumen | safe}}</p>
-                  <a class="btn btn-dark btn-theme-colored btn-xs btn-flat mt-0" href="{% url 'detalle_blog' %}?id_post={{ item.id }}">Leer Más</a>
+                  <a class="btn btn-dark btn-theme-colored btn-xs btn-flat mt-0" href="{% url 'detalle_blog'%}?id_post={{ item.id }}">Leer Más</a>
                   <div class="clearfix"></div>
                 </div>
               </article>
