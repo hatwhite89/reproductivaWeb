@@ -32,6 +32,7 @@
                 <div class="entry-header">
                   <div class="post-thumb thumb"> <img src="/media/{{ item.imagen_portada }}" alt="" class="img-responsive img-fullwidth"> </div>
                 </div>
+                  <!--->
                 <div class="entry-content border-1px p-20">
                   <h5 class="entry-title mt-0 pt-0"><a href="#">{{item.titulo}}</a></h5>
                   <ul class="list-inline entry-date font-12 mt-5">
@@ -39,7 +40,7 @@
                     <li class="pl-0"><span class="text-theme-colored">{{item.fecha_creacion}}</span></li>
                   </ul>
                   <p class="text-left mb-20 mt-15 font-13">{{item.resumen | safe}}</p>
-                  <a class="btn btn-dark btn-theme-colored btn-xs btn-flat mt-0" href="#">Leer Más</a>
+                  <a class="btn btn-dark btn-theme-colored btn-xs btn-flat mt-0" href="{% url 'detalle_blog' %}?id_post={{ item.id }}">Leer Más</a>
                   <div class="clearfix"></div>
                 </div>
               </article>

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <section>
+      <div class="container mt-30 mb-30 pt-30 pb-30">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="blog-posts single-post">
+                {% for item in detalle_blog %}
+              <article class="post clearfix mb-0">
+                <div class="entry-header">
+                  <div class="post-thumb thumb"> <img src="/media/{{ item.imagen_portada }}" alt="" class="img-responsive img-fullwidth"> </div>
+                </div>
+                <div class="entry-content">
+                  <div class="entry-meta media no-bg no-border mt-15 pb-20">
+                    <div class="entry-date media-left text-center flip bg-theme-colored pt-5 pr-15 pb-5 pl-15">
+                      <ul>
+                        <li class="font-16 text-white font-weight-600">28</li>
+                        <li class="font-12 text-white text-uppercase">Feb</li>
+                      </ul>
+                    </div>
+                    <div class="media-body pl-15">
+                      <div class="event-content flip">
+                        <h3 class="entry-title text-white text-center"><a href="blog-single-right-sidebar.html">{{ item.titulo }}</a></h3>
+                                </div>
+                    </div>
+                  </div>
+               {{ item.cuerpo | safe }}
+
+                </div>
+              </article>
+                {% endfor %}
+              <div class="tagline p-0 pt-20 mt-5">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="tags">
+                      <p class="mb-0"><i class="fa fa-tags text-theme-colored"></i> <span>Tags:</span> </p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+  <div class="author-details media-post">
+      {%  for item in detalle_blog %}
+                <a href="#" class="post-thumb mb-0 pull-left flip pr-20"><img class="img-thumbnail" alt=""  src="/media/{{ item.bloguero.foto }}"></a>
+                <div class="post-right">
+                  <h5 class="post-title mt-0 mb-0 text-white">{{item.bloguero}}</h5>
+                  <p> {{ item.bloguero.descripcion }}</p>
+                  <ul class="styled-icons square-sm m-0">
+
+                  </ul>
+                </div>
+      {% endfor %}
+                <div class="clearfix"></div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

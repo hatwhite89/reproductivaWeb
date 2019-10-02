@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 
 from reproductivaApp.form import ContactForm, correo
-from reproductivaApp.models import Noticias, PostContenido, Videos,Post
+from reproductivaApp.models import Noticias, PostContenido, Videos,Post,AlbumGaleria,ImagenesGaleriaAlbum
 
 
 def main(request):
@@ -46,7 +46,18 @@ def videos(request):
     videos=Videos.objects.all()
     return render (request,'videos.html',{'videos':videos})
 
+def detalleBlog(request):
+    id_blog=request.GET['id_post']
+    detalle_blog=Post.objects.filter(pk=id_blog)
+    return render(request,'detalle_blog.html',{'detalle_blog':detalle_blog})
+
+
 class contacto(View):
     def get(self,request):
         form=correo()
         return render(request,'contacto.html',{'forma':form})
+
+def galeria(request):
+    albumes= AlbumGaleria.objects.all()
+    lista_albumes=ImagenesGaleriaAlbum.objects.all()
+    return  render(request,'galeria.html',{'albumes':albumes,'lista_albumes':lista_albumes})

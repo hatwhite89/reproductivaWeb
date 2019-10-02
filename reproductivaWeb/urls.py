@@ -37,6 +37,8 @@ urlpatterns = [
     url(r'^email/$', views.contacto.as_view(), name="email"),
 
     url(r'^detalle_post/$', views.postDetalle, name="detalle_post"),
+    url(r'^detalle_blog/$', views.detalleBlog, name="detalle_blog"),
+    url(r'^galeria/$', views.galeria, name="galeria"),
 ]
 # SI EL DEBUG ES TRUE ENTONCES QUE TOME LA CARPETA STATIC_URL, DE LO CONTRARIO QUE UTILIZE LA CARPETA MEDIA_URL
 if settings.DEBUG:
